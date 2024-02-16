@@ -1,4 +1,6 @@
 using LeagueTracker.Data;
+using LeagueTracker.Data.Repositories;
+using LeagueTracker.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,10 @@ builder.Services.AddDbContext<DataContext>(options =>
 {
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<ILeagueStatisticsRepository, LeagueStatisticsRepository>();
+builder.Services.AddScoped<IClubStatisticsRepository, ClubStatisticsRepository>();
 
 var app = builder.Build();
 

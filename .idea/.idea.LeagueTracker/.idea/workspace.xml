@@ -10,14 +10,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb7bbf2-5cef-4511-ba6f-020ef8a5bb46" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/DTOs/ClubAndStatsDto.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Data/Repositories/ClubStatisticsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Data/Repositories/LeagueStatisticsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Helpers/AutoMapperProfiles.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Interfaces/IClubStatisticsRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Interfaces/ILeagueStatisticsRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/dataSources/4258fcc0-5525-4ac3-9b74-52e1cf77d0fd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/dataSources/4258fcc0-5525-4ac3-9b74-52e1cf77d0fd.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LeagueTracker/Controllers/LeagueController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Controllers/LeagueController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeagueTracker/Data/ClubsData.json" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Data/ClubsData.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeagueTracker/Data/Seed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Data/Seed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeagueTracker/LeagueTracker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/LeagueTracker.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LeagueTracker/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LeagueTracker/Views/League/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Views/League/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeagueTracker/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Views/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeagueTracker/projectdb.db" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/projectdb.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
