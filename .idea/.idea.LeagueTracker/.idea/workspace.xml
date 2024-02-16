@@ -10,16 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb7bbf2-5cef-4511-ba6f-020ef8a5bb46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Data/DbContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Data/Enum/MatchStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Models/Club.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Models/ClubStatistics.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Models/League.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Models/LeagueStatistics.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Models/Match.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Models/Season.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeagueTracker/LeagueTracker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/LeagueTracker.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeagueTracker/Controllers/LeagueController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Controllers/LeagueController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeagueTracker/Data/ClubsData.json" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Data/ClubsData.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeagueTracker/Data/Seed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Data/Seed.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeagueTracker/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeagueTracker/Views/League/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Views/League/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeagueTracker/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LeagueTracker/projectdb.db" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/projectdb.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,9 +27,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2cK0dRwWmVDrLujL5xNM5MVgLAz" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -39,17 +37,23 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Launch Settings Profile.LeagueTracker: http.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "seed",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "sqlite"
+    ],
     "rider.external.source.directories": [
       "C:\\Users\\karol\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
       "C:\\Users\\karol\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
@@ -112,7 +116,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707845051048</updated>
-      <workItem from="1707845052337" duration="5233000" />
+      <workItem from="1707845052337" duration="8079000" />
+      <workItem from="1707910320160" duration="9487000" />
+      <workItem from="1708026404393" duration="3513000" />
     </task>
     <servers />
   </component>

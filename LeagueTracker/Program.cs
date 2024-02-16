@@ -31,4 +31,18 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+try
+{
+    var context = services.GetRequiredService<DataContext>();
+    await context.Database.MigrateAsync();
+    await Seed.SeedData(context);
+}
+catch (Exception e)
+{
+    var logger = services.GetService<ILogger<Program>>();
+    logger.LogError(e, "An occured during migration");
+}
+
 app.Run();
