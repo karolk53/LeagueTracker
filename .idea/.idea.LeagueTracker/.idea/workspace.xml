@@ -10,16 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb7bbf2-5cef-4511-ba6f-020ef8a5bb46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/DTOs/ClubAndStatsDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Data/Repositories/ClubStatisticsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Data/Repositories/LeagueStatisticsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Helpers/AutoMapperProfiles.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Interfaces/IClubStatisticsRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LeagueTracker/Interfaces/ILeagueStatisticsRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/dataSources/4258fcc0-5525-4ac3-9b74-52e1cf77d0fd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/dataSources/4258fcc0-5525-4ac3-9b74-52e1cf77d0fd.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Controllers/ClubController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Data/Repositories/ClubRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Interfaces/IClubRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/Views/Shared/_ClubMatches.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LeagueTracker/wwwroot/css/league.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LeagueTracker/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeagueTracker/Controllers/LeagueController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Controllers/LeagueController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LeagueTracker/LeagueTracker.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/LeagueTracker.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LeagueTracker/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LeagueTracker/Views/League/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/LeagueTracker/Views/League/Index.cshtml" afterDir="false" />
     </list>
@@ -39,32 +35,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.LeagueTracker: http.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "seed",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.LeagueTracker: http.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;seed&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql",
-      "sqlite"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;sqlite&quot;
     ],
-    "rider.external.source.directories": [
-      "C:\\Users\\karol\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\karol\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\karol\\AppData\\Local\\Symbols\\src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\karol\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\karol\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\karol\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.LeagueTracker: http">
     <configuration name="LeagueTracker: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/LeagueTracker/LeagueTracker.csproj" />
@@ -123,6 +119,7 @@
       <workItem from="1707845052337" duration="8079000" />
       <workItem from="1707910320160" duration="9487000" />
       <workItem from="1708026404393" duration="3513000" />
+      <workItem from="1708158151709" duration="8271000" />
     </task>
     <servers />
   </component>

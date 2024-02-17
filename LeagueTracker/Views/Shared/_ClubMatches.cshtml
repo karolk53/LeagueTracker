@@ -1,0 +1,9 @@
+﻿@model IEnumerable<LeagueTracker.Models.Match>
+
+<h3>Mecze wybranego klubu:</h3>
+<ul>
+    @foreach (var match in Model)
+    {
+        <li>@match.HomeName vs @match.GuestName - @match.StartDate</li>
+    }
+</ul>

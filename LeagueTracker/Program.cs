@@ -15,6 +15,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<ILeagueStatisticsRepository, LeagueStatisticsRepository>();
 builder.Services.AddScoped<IClubStatisticsRepository, ClubStatisticsRepository>();
+builder.Services.AddScoped<IClubRepository, ClubRepository>();
 
 var app = builder.Build();
 

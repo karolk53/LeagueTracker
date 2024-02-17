@@ -8,7 +8,24 @@
 
 <html lang="en">
 <head>
-    <title>LeagueTracker</title>
+  <title>LeagueTracker</title>
+  <link rel="stylesheet" href="css/league.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+         $(document).ready(function () {
+             $('.club-name').click(function () {
+                 var clubId = $(this).data('club-id');
+                 $.ajax({
+                     url: '@Url.Action("GetClubMatchesById", "Club")',
+                     type: 'GET',
+                     data: { clubId: clubId },
+                     success: function (data) {
+                         $('#club-matches').html(data);
+                     }
+                 });
+             });
+         });
+  </script>
 </head>
 <body>
 <h1>
@@ -23,16 +40,17 @@
   <select name="leagueName" id="leagueName">
     <option value="Pro League">Pro League</option>
     <option value="La Liga">La Liga</option>
-    </select>
+  </select>
   <br />
   <label for="seasonId">Wybierz sezon:</label>
   <select name="seasonId" id="seasonId">
     <option value="1">Sezon 2022/2023</option>
     <option value="2">Sezon 2023/2024</option>
-    </select>
+  </select>
   <br />
   <input type="submit" value="Search" />
-  </form>
+</form>
+
 
 <table class="table table-striped">
   <thead>
@@ -53,7 +71,7 @@
     {
       <tr>
         <th scope="row">@club.Id</th>
-        <td>@club.Name</td>
+        <td class="club-name" data-club-id="@club.Id">@club.Name</td>
         <td>@club.PlayedMatches</td>
         <td>@club.WonMatches</td>
         <td>@club.TiedMatches</td>
@@ -64,5 +82,8 @@
   }
   </tbody>
 </table>
+
+<div id="club-matches"></div>
+
 </body>
 </html>

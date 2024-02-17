@@ -1,0 +1,81 @@
+﻿/* Resetowanie domyślnych stylów dla przeglądarki */
+body, html, div, p, table, th, td, select, option, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Styl dla nagłówka */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Styl dla formularza */
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Styl dla tabeli */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+
+/* Styl dla przycisków w tabeli */
+.table button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/* Styl dla sekcji z meczami klubu */
+#club-matches {
+    margin-top: 20px;
+}
+
+/* Styl dla nazw klubów w tabeli */
+.club-name {
+    cursor: pointer;
+    color: #007bff;
+}
+
+/* Styl dla selektora */
+select {
+    padding: 5px;
+    width: 100%;
+}
+
+/* Styl dla selektora w formularzu */
+form select {
+    margin-bottom: 10px;
+}
+
+/* Dodatkowe style dla aktywnego elementu */
+a:active, a:hover {
+    color: #dc3545;
+    text-decoration: none;
+}
