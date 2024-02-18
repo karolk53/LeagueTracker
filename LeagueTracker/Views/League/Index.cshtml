@@ -1,4 +1,8 @@
 ﻿@using LeagueTracker.DTOs
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<AppUser> SignInManager
+
 @{
   LeagueStatistics leagueStatistics = ViewData["LeagueStatistics"] as LeagueStatistics;
   List<ClubAndStatsDto> clubAndStatsDtos = ViewData["ClubsAndStats"] as List<ClubAndStatsDto>;
@@ -11,77 +15,76 @@
   <title>LeagueTracker</title>
   <link rel="stylesheet" href="css/league.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script>
-         $(document).ready(function () {
-             $('.club-name').click(function () {
-                 var clubId = $(this).data('club-id');
-                 $.ajax({
-                     url: '@Url.Action("GetClubMatchesById", "Club")',
-                     type: 'GET',
-                     data: { clubId: clubId },
-                     success: function (data) {
-                         $('#club-matches').html(data);
-                     }
-                 });
-             });
-         });
-  </script>
+  <script src="js/site.js"></script>
 </head>
 <body>
-<h1>
-  @if (leagueStatistics != null)
-  {
-    @leagueStatistics.League.Name
-  }
-</h1>
 
-<form method="get" action="@Url.Action("Index", "League")">
-  <label for="leagueName">Wybierz ligę:</label>
-  <select name="leagueName" id="leagueName">
-    <option value="Pro League">Pro League</option>
-    <option value="La Liga">La Liga</option>
-  </select>
-  <br />
-  <label for="seasonId">Wybierz sezon:</label>
-  <select name="seasonId" id="seasonId">
-    <option value="1">Sezon 2022/2023</option>
-    <option value="2">Sezon 2023/2024</option>
-  </select>
-  <br />
-  <input type="submit" value="Search" />
-</form>
+<div class="container border p-2">
+  <div class="container bg-primary">
+    <h1>
+        @if (leagueStatistics != null)
+        {
+          @leagueStatistics.League.Name
+        }
+      </h1>
+  </div>
+
+  <form method="get" action="@Url.Action("Index", "League")">
+    <label for="leagueName">Wybierz ligę:</label>
+    <select class="dropdown-primary" name="leagueName" id="leagueName">
+      <option value="Pro League">Pro League</option>
+      <option value="La Liga">La Liga</option>
+    </select>
+    <br/>
+    <label for="seasonId">Wybierz sezon:</label>
+    <select name="seasonId" id="seasonId">
+      <option value="1">Sezon 2022/2023</option>
+      <option value="2">Sezon 2023/2024</option>
+    </select>
+    <br/>
+    <input class="btn btn-primary" type="submit" value="Search"/>
+  </form>
 
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">#</th>
-    <th scope="col">Klub</th>
-    <th scope="col">RM</th>
-    <th scope="col">W</th>
-    <th scope="col">R</th>
-    <th scope="col">P</th>
-    <th scope="col">Pkt.</th>
-  </tr>
-  </thead>
-  <tbody>
-  @if (clubAndStatsDtos != null)
-  {
-    foreach (var club in clubAndStatsDtos)
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Klub</th>
+      <th scope="col">RM</th>
+      <th scope="col">W</th>
+      <th scope="col">R</th>
+      <th scope="col">P</th>
+      <th scope="col">Pkt.</th>
+      @if (SignInManager.IsSignedIn(User))
+      {
+        <th scope="col">Follow</th>
+      }
+    </tr>
+    </thead>
+    <tbody>
+    @if (clubAndStatsDtos != null)
     {
-      <tr>
-        <th scope="row">@club.Id</th>
-        <td class="club-name" data-club-id="@club.Id">@club.Name</td>
-        <td>@club.PlayedMatches</td>
-        <td>@club.WonMatches</td>
-        <td>@club.TiedMatches</td>
-        <td>@club.LostMatches</td>
-        <td>@club.Points</td>
-      </tr>
+      foreach (var club in clubAndStatsDtos)
+      {
+        <tr>
+          <th scope="row">@club.Id</th>
+          <td class="club-name" data-club-id="@club.Id">@club.Name</td>
+          <td>@club.PlayedMatches</td>
+          <td>@club.WonMatches</td>
+          <td>@club.TiedMatches</td>
+          <td>@club.LostMatches</td>
+          <td>@club.Points</td>
+          @if (SignInManager.IsSignedIn(User))
+          {
+            <td><i class="bi bi-heart-fill"></i></td>
+          }
+        </tr>
+      }
     }
-  }
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 
 <div id="club-matches"></div>
 

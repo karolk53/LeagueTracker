@@ -1,6 +1,9 @@
 using LeagueTracker.Data;
 using LeagueTracker.Data.Repositories;
 using LeagueTracker.Interfaces;
+using LeagueTracker.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +20,28 @@ builder.Services.AddScoped<ILeagueStatisticsRepository, LeagueStatisticsReposito
 builder.Services.AddScoped<IClubStatisticsRepository, ClubStatisticsRepository>();
 builder.Services.AddScoped<IClubRepository, ClubRepository>();
 
+builder.Services.AddIdentity<AppUser, AppRole>(opt => 
+    {
+        opt.Password.RequireNonAlphanumeric = false;
+        opt.SignIn.RequireConfirmedAccount = false;
+    })
+    .AddRoles<AppRole>()
+    .AddRoleManager<RoleManager<AppRole>>()
+    .AddEntityFrameworkStores<DataContext>();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromHours(2);
+
+    options.LoginPath = "/Identity/Account/Login";
+    //options.AccessDeniedPath = "/Identity/Account/AccessDenied";
+    options.SlidingExpiration = true;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -32,6 +57,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
