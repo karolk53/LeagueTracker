@@ -8,13 +8,22 @@ namespace LeagueTracker.Controllers
     {
         private readonly ILeagueStatisticsRepository _leagueStatisticsRepository;
         private readonly IClubStatisticsRepository _clubStatisticsRepository;
+        private readonly IClubRepository _clubRepository;
+        private readonly ISeasonRepository _seasonRepository;
+        private readonly ILeagueRepository _leagueRepository;
 
         public LeagueController(
             ILeagueStatisticsRepository leagueStatisticsRepository, 
-            IClubStatisticsRepository clubStatisticsRepository)
+            IClubStatisticsRepository clubStatisticsRepository,
+            IClubRepository clubRepository,
+            ISeasonRepository seasonRepository,
+            ILeagueRepository leagueRepository)
         {
             _leagueStatisticsRepository = leagueStatisticsRepository;
             _clubStatisticsRepository = clubStatisticsRepository;
+            _clubRepository = clubRepository;
+            _seasonRepository = seasonRepository;
+            _leagueRepository = leagueRepository;
         }
         
         public async Task<IActionResult> Index([FromQuery]string leagueName,[FromQuery]int seasonId)
@@ -29,10 +38,14 @@ namespace LeagueTracker.Controllers
                     clubsAndStats.Add(await _clubStatisticsRepository.GetClubInfo(club));
                 }
             }
-            
 
+            var userClubs = await _clubRepository.GetUserClubsAsync(User.Identity.Name);
+
+            ViewData["Seasons"] = await _seasonRepository.GetAllSeasonAsync();
+            ViewData["Leagues"] = await _leagueRepository.GetAllLeaguesAsync();
             ViewData["LeagueStatistics"] = leagueStatistics;
-            ViewData["ClubsAndStats"] = clubsAndStats;
+            ViewData["ClubsAndStats"] = clubsAndStats.OrderByDescending(x=>x.Points).ThenBy(x=>x.Name).ToList();
+            ViewData["UserClubs"] = userClubs;
             
             return View();
         }

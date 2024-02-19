@@ -20,7 +20,10 @@ public class ClubStatisticsRepository : IClubStatisticsRepository
     
     public async Task<ClubAndStatsDto> GetClubInfo(Club club)
     {
-        return await _context.ClubStatistics.Include(c => c.Club).Where(x => x.Club.Id.Equals(club.Id))
-            .ProjectTo<ClubAndStatsDto>(_mapper.ConfigurationProvider).FirstOrDefaultAsync();
+        return await _context.ClubStatistics
+            .Include(c => c.Club)
+            .Where(x => x.Club.Id.Equals(club.Id))
+            .ProjectTo<ClubAndStatsDto>(_mapper.ConfigurationProvider)
+            .FirstOrDefaultAsync();
     }
 }

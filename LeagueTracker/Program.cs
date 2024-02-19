@@ -18,6 +18,9 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<ILeagueStatisticsRepository, LeagueStatisticsRepository>();
 builder.Services.AddScoped<IClubStatisticsRepository, ClubStatisticsRepository>();
+builder.Services.AddScoped<IAppUserClubRepository, AppUserClubRepository>();
+builder.Services.AddScoped<ISeasonRepository, SeasonRepository>();
+builder.Services.AddScoped<ILeagueRepository, LeagueRepository>();
 builder.Services.AddScoped<IClubRepository, ClubRepository>();
 
 builder.Services.AddIdentity<AppUser, AppRole>(opt => 

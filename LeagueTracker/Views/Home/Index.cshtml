@@ -1,8 +1,26 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<AppUser> SignInManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <h1>Welcome @User.Identity.Name</h1>
+        <p>You can view leagues <a asp-area="" asp-controller="League" asp-action="Index" >here</a></p>
+    }
+    else
+    {
+        <h1>Welcome</h1>
+        <p>It is an app that allows you to track different football leagues</p>
+        <p>You can view leagues <a asp-area="" asp-controller="League" asp-action="Index" >here</a></p>
+        <p>And if you do not have account yet, go ahead and create it</p>
+        <a class="btn btn-primary" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+        <a class="btn btn-secondary" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+    }
+    
+    
 </div>

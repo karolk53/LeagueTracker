@@ -15,3 +15,17 @@ $(document).ready(function () {
         });
     });
 });
+
+$(document).ready(function () {
+    $('.favorite').click(function () {
+        var clubId = $(this).data('club-id');
+        $.ajax({
+            url: '/Club/AddClubToFavorites/',
+            type: 'POST',
+            data: {clubId: clubId},
+            success: function () {
+                location.reload();
+            }
+        });
+    });
+});

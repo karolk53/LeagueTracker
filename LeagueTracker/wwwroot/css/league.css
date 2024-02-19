@@ -38,3 +38,7 @@ form select {
 }
 
 a:active, a:hover {}
+
+.favorited {
+    color: red;
+}

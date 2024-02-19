@@ -19,6 +19,7 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int,
     public DbSet<LeagueStatistics> LeagueStatistics { get; set; }
     public DbSet<Match> Matches { get; set; }
     public DbSet<Season> Seasons { get; set; }
+    public DbSet<AppUserClub> AppUserClubs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -33,6 +34,19 @@ public class DataContext : IdentityDbContext<AppUser, AppRole, int,
             .HasOne(x => x.Home)
             .WithMany(x => x.HomeMatches)
             .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<AppUserClub>().HasKey(k => new { k.UserId, k.ClubId });
+        
+        modelBuilder.Entity<AppUserClub>()
+            .HasOne<AppUser>(x => x.User)
+            .WithMany(c => c.Clubs)
+            .HasForeignKey(fk => fk.UserId);
+        
+        modelBuilder.Entity<AppUserClub>()
+            .HasOne<Club>(x => x.Club)
+            .WithMany(f => f.Followers)
+            .HasForeignKey(fk => fk.ClubId);
+
     }
     
 }

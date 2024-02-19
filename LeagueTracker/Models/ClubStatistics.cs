@@ -12,4 +12,6 @@ public class ClubStatistics
     public int ClubId { get; set; }
     public Season Season { get; set; }
     public int SeasonId { get; set; }
+    public ICollection<Match> GuestMatches { get; set; }
+    public ICollection<Match> HomeMatches { get; set; }
 }
