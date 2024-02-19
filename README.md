@@ -3,7 +3,7 @@
 ### 1. Wymagania
 Realizację zadania rozpocząłem od zdefiniowania wymagań, które powinny być spełnione w aplikacji. Były to głównie wymagania funkcjonalne.
 ### 2. Projekt bazy danych
-Projektowanie bazy danych było najbardziej czasochłonne, chciałem aby baza, którą stworzę była w jak największym stopniu przystosowana do późniejszego rozszerzania funkcjonalności systemu. Zdecydowałem się na wybranie na wybranie bazy SQLite z racji na to, iż projekt jest stosunkowo niewielki, a także dane są w łatwy sposób przekazywane innym twórcom, chociaż baza danych postawiona na Dockerze również byłaby dobrym rozwiązaniem.
+Projektowanie bazy danych było bardziej czasochłonne, chciałem aby baza, którą stworzę była w jak największym stopniu przystosowana do późniejszego rozszerzania funkcjonalności systemu. Zdecydowałem się na wybranie bazy SQLite z racji na to, iż projekt jest stosunkowo niewielki, a także dane są w łatwy sposób przekazywane innym twórcom, chociaż baza danych postawiona na Dockerze również byłaby dobrym rozwiązaniem.
 ### 3. Implementacja
 Implementacje rozpocząłem od stworzenia modeli ('Code First') oraz podłączenia bazy danych. Kolejno dodałem przykładowe dane, aby mieć na czym pracować oraz podstawowe funkcjonalności niewymagające autoryzacji. Następnie skonfigurowałem system uwierzytelniania i autoryzacji (Identity Framework) bazujący na 'Cookie' również ze względu na rozmiar oraz złożoność aplikacji. Dzięki temu możliwe było zaimplementowanie funkcjonalności polubień.  Na koniec zostało przeprowadzenie małej refaktoryzacji kodu. Dodatkowo w aplikacji wykorzystałem bibliotekę Boostrap do stworzenia strony graficznej.
 
