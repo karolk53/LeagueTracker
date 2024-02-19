@@ -1,9 +1,19 @@
 ﻿@model IEnumerable<LeagueTracker.Models.Match>
 
 <h3>Mecze wybranego klubu:</h3>
-<ul>
+<div class="container d-flex flex-row justify-content-center">
     @foreach (var match in Model)
-    {
-        <li>@match.HomeName vs @match.GuestName - @match.StartDate</li>
-    }
-</ul>
+        {
+            <div class="card border-secondary mb-3 m-auto" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-secondary">@match.StartDate</div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title text-center">@match.HomeName vs @match.GuestName</h5>
+                    <p class="card-text text-center">@match.HomeGoals - @match.GuestGoals</p>
+                </div>
+                <div class="card-footer bg-transparent border-secondary">
+                    <button class="btn btn-info">See details</button>
+                </div>
+            </div>
+        }
+</div>
+    

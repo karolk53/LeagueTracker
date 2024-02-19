@@ -1,5 +1,6 @@
 using LeagueTracker.Data;
 using LeagueTracker.Data.Repositories;
+using LeagueTracker.Extensions;
 using LeagueTracker.Interfaces;
 using LeagueTracker.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -15,35 +16,9 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddScoped<ILeagueStatisticsRepository, LeagueStatisticsRepository>();
-builder.Services.AddScoped<IClubStatisticsRepository, ClubStatisticsRepository>();
-builder.Services.AddScoped<IAppUserClubRepository, AppUserClubRepository>();
-builder.Services.AddScoped<ISeasonRepository, SeasonRepository>();
-builder.Services.AddScoped<ILeagueRepository, LeagueRepository>();
-builder.Services.AddScoped<IClubRepository, ClubRepository>();
+builder.Services.AddApplicationServices(builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
-builder.Services.AddIdentity<AppUser, AppRole>(opt => 
-    {
-        opt.Password.RequireNonAlphanumeric = false;
-        opt.SignIn.RequireConfirmedAccount = false;
-    })
-    .AddRoles<AppRole>()
-    .AddRoleManager<RoleManager<AppRole>>()
-    .AddEntityFrameworkStores<DataContext>();
-
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie();
-
-builder.Services.ConfigureApplicationCookie(options =>
-{
-    options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromHours(2);
-
-    options.LoginPath = "/Identity/Account/Login";
-    //options.AccessDeniedPath = "/Identity/Account/AccessDenied";
-    options.SlidingExpiration = true;
-});
 
 var app = builder.Build();
 
